@@ -7,6 +7,10 @@ import './index.css';
 import App from './App.jsx';
 //import Details from './Details';
 //import Greet from './Greet';
+// To import a file with multiple export ==>
+// import default,{ not default, not default (name as it is)} from './__' 
+// or import * as abc from './__'
+// then to render we have write abc.default, abc.function(), abc.var <==  
 
 
 //ReactDOM.render('what','where','callback')
@@ -30,3 +34,5 @@ ReactDOM.render(<App/>,document.getElementById('root'));
 // {} is only for expression & JS
 // its className in jsx not class
 //template literals = {} or while in single or double quote have to use &{}
+
+// The first letter of component file name must be Capital

@@ -20,3 +20,7 @@ function Details(){
 }
 
 export default Details
+
+// For multiple export ==>
+// export default _____
+// export { ___ , ___ }
