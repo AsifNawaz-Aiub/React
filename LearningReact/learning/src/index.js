@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App.jsx';
+
 //import Details from './Details';
 //import Greet from './Greet';
 // To import a file with multiple export ==>

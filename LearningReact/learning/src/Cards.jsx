@@ -1,17 +1,18 @@
 import React from 'react';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 function Cards(props){
 
 
 return(
 <> 
-<div  className="cards">
- <div className="card">
-  <img src={props.imgSource} alt="No Image" className="card__img"/>
-  <div className="card__info">
-  <span className="card__category"> {props.title}</span>
-  <h3 className="card__title">{props.seriesName}</h3>
-  <a href={props.link} target="_blank"> <button>Watch Now</button></a>
+<div  className="col-sm-3">
+ <div className="card" style={{width: "18rem"}}>
+  <img src={props.imgSource} alt="Card image cap" className="card-img-top" style={{width:"18rem",height:"200px"}}/>
+  <div className="card-body">
+  <span className="card-title"> {props.title}</span>
+  <h3 className="card-text">{props.seriesName}</h3>
+  <a href={props.link} target="_blank"> <button className="btn btn-primary">Watch Now</button></a>
   </div>
  </div>
 </div>
