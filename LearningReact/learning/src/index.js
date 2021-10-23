@@ -15,6 +15,7 @@ import App from './App.jsx';
 
 
 //ReactDOM.render('what','where','callback')
+
 ReactDOM.render(<App/>,document.getElementById('root'));
   
   
