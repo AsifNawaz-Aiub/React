@@ -16,7 +16,7 @@ background-color: cornflowerblue;
 
 }
 
-div {
+/* div {
   width: 100%;
   height: 100vh;
   background: #8e44ad;
@@ -24,9 +24,27 @@ div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 
-button{
+.main_div {
+  width: 100%;
+  height: 100vh;
+  background: #7e83ca;
+   display: flex; 
+   flex-direction: row; 
+  justify-content: center;
+  align-items: center; 
+  text-align: center;
+}
+.todo{
+  width: 35%;
+  height: 80vh;
+  background: #cfc9d1;
+  box-shadow: 5px 5px 25px rgba(0, 0,0, 0.5);
+  border-radius: 15px;;
+
+}
+/* button{
   line-height: 24px;
   padding: 0px 20px;
   background: #8e44ad;
@@ -36,18 +54,75 @@ button{
   border-radius: 10px;
   text-transform: uppercase;
   cursor: pointer;
-}
+} */
 
-h1 {
-  color: white;
+/* h1 {
+  color: rgb(255, 255, 255);
   background: transparent;
   text-shadow: 0 2px 2px black;
-}
+} */
 
-input{
-  width: 100%;
+/* input{
+  width: 100px;
   padding: 10px 20px;
   border : none;
   margin: 20px 0;
   text-align: center ;
+} */
+
+.h1Todo{
+  color: rgb(255, 255, 255);
+  background: transparent;
+  background: #8e44ad;
+  padding: 6px 0 2px 0;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0,0, 0.3);
+}
+
+.inputTodo{
+  text-align: center;
+  height: 30px;
+  top: 10px;
+  border:none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 500;
+  width: 60%;
+  border-bottom: 2px solid #8566aa;
+  outline: none;
+}
+
+.buttonTodo{
+  min-height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #8566aa;
+  color: #fff;
+  font-size: 40px;
+  border:none;
+  outline: none;
+  margin-left: 10px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0,0, 0.3);;
+}
+.buttonTodo2{
+  min-height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #8566aa;
+  color: #fff;
+  font-size: 10px;
+  border:none;
+  outline: none;
+  margin-left: 10px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0,0, 0.3);;
+}
+
+
+.buttonTodo:hover{
+  background-color: #20bf6b;
+}
+.buttonTodo2:hover{
+  background-color: #e90707;
 }

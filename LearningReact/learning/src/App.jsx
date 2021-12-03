@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 //import Cards from './Cards';
 //import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./Sdata";
+import ToDolist from './ToDoList';
 //import SlotMachine from './SlotMachine';
 //import data from './Sdata';
 
@@ -38,35 +39,40 @@ function App(){
        //    const value =event.target.value
        const{value,name}=event.target;
           setfullName((preValue)=>{
-             if(name==='fname'){
-                return({
-                     fname :value,
-                     lname :preValue.lname,
-                     email :preValue.email,
-                     phone :preValue.phone     
-                });    
-             } else if(name==='lname'){
+
               return({
-                   fname :preValue.fname ,
-                   lname :value,
-                   email :preValue.email,
-                   phone :preValue.phone     
-              });    
-           } else if(name==='email'){
-              return({
-                   fname :preValue.fname ,
-                   lname :preValue.lname,
-                   email :value,
-                   phone :preValue.phone      
-              });    
-           } else if(name==='phone'){
-              return({
-                   fname :preValue.fname ,
-                   lname :preValue.lname,
-                   email :preValue.email,
-                   phone :value   
-              });    
-           }
+                  ...preValue,
+                  [name]:value   
+              })
+       //       if(name==='fname'){
+       //          return({
+       //               fname :value,
+       //               lname :preValue.lname,
+       //               email :preValue.email,
+       //               phone :preValue.phone     
+       //          });    
+       //       } else if(name==='lname'){
+       //        return({
+       //             fname :preValue.fname ,
+       //             lname :value,
+       //             email :preValue.email,
+       //             phone :preValue.phone     
+       //        });    
+       //     } else if(name==='email'){
+       //        return({
+       //             fname :preValue.fname ,
+       //             lname :preValue.lname,
+       //             email :value,
+       //             phone :preValue.phone      
+       //        });    
+       //     } else if(name==='phone'){
+       //        return({
+       //             fname :preValue.fname ,
+       //             lname :preValue.lname,
+       //             email :preValue.email,
+       //             phone :value   
+       //        });    
+       //     }
           })
        }
        const onSub = (event) =>{
@@ -74,11 +80,12 @@ function App(){
              alert('Form Submitted')
              // setName(val);
           }
-          
+
+    
     
 return(
 <>
-<div><form onSubmit={onSub}>
+{/* <div><form onSubmit={onSub}>
        <h1>Hello {fullName.fname} {fullName.lname}</h1>
        <h1> {fullName.email} </h1>
        <h1> {fullName.phone} </h1>
@@ -88,7 +95,10 @@ return(
        <input type='number' placeholder="Enter Your Phone Number" name="phone" onChange={inputEvent} value={fullName.phone} /><br/>
        <button type="submit"> Click Me </button>
 </form>
-</div>
+</div> */}
+<ToDolist/>
+
+
 </>
 );
 
