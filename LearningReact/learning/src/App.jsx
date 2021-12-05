@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 //import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./Sdata";
 import ToDolist from './ToDoList';
+import IncDec from './IncDec';
 //import SlotMachine from './SlotMachine';
 //import data from './Sdata';
 
@@ -96,8 +97,9 @@ return(
        <button type="submit"> Click Me </button>
 </form>
 </div> */}
-<ToDolist/>
 
+ <ToDolist/> 
+{/* <IncDec/> */}
 
 </>
 );

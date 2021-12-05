@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import SubToDoList from './SubToDoList';
+import Button from '@mui/material/Button';
+//import Button from '@material-ui/core/Button';
+import AddIcon from '@mui/icons-material/Add';
+
+
 
 const ToDoList =()=>{
 
@@ -31,7 +36,15 @@ return(
 <div className="todo">
   <h1 className="h1Todo">ToDo List</h1>
   <input className="inputTodo" type='text'onChange={inputList} placeholder="Add a task" value={list}/>
-  <button className="buttonTodo" onClick={insertFullList}> + </button>
+  {/* <button className="buttonTodo" onClick={insertFullList}> + </button> */}
+  <Button  onClick={insertFullList} sx={{
+    borderRadius: '50%',
+    minHeight: '20px',
+    width: '10px',
+    ':hover': {
+      bgcolor: '#20bf6b', // theme.palette.primary.main
+      color: 'white',
+    }, }}><AddIcon/></Button>
   <br/>
   <br/>
   <br/>
