@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import "./Sdata";
 import ToDolist from './ToDoList';
 import IncDec from './IncDec';
+import GoogleKeep from './GoogleKeep/GoogleKeep';
 //import SlotMachine from './SlotMachine';
 //import data from './Sdata';
 
@@ -98,7 +99,8 @@ return(
 </form>
 </div> */}
 
- <ToDolist/> 
+ {/* <ToDolist/>  */}
+ <GoogleKeep/>
 {/* <IncDec/> */}
 
 </>

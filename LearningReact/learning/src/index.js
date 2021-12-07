@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import './MyStyle.js';
+
 import App from './App.jsx';
 
 //import Details from './Details';
