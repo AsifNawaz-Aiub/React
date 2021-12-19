@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 //import Details from './Details';
 //import Greet from './Greet';
 //import {Add,Sub} from './Calculator';
@@ -8,6 +8,10 @@ import "./Sdata";
 import ToDolist from './ToDoList';
 import IncDec from './IncDec';
 import GoogleKeep from './GoogleKeep/GoogleKeep';
+import PokemonApi from './PokemonApi';
+import Navbar from './Navbar';
+import { Route, Routes } from 'react-router-dom';
+
 //import SlotMachine from './SlotMachine';
 //import data from './Sdata';
 
@@ -24,10 +28,15 @@ import GoogleKeep from './GoogleKeep/GoogleKeep';
 // );
 // }
 
-
-
+const Data = createContext();
+const Data2 = createContext();
 
 function App(){
+
+  
+//      useEffect(()=>{
+//   alert('Page refreshed');
+//      },[]); //Empty array to run only in first reload, a state can be inserted in the array to run this only when that state is changed         
       const [fullName,setfullName]= useState({
             fname :"",
             lname :"",
@@ -100,15 +109,28 @@ return(
 </div> */}
 
  {/* <ToDolist/>  */}
- <GoogleKeep/>
+ {/* <GoogleKeep/>  */}
 {/* <IncDec/> */}
 
+{/* <Data.Provider value={"val"} >
+ <Data2.Provider value={"val2"} >   
+ <GoogleKeep/> 
+ </Data2.Provider>
+</Data.Provider> */}
+<Navbar/>
+<Routes> 
+<Route path="/PokemonGoApi" element={<PokemonApi/>}/>
+<Route path="/GoogleKeep" element={<GoogleKeep/>}/>
+<Route path="/ToDoList" element={<ToDolist/>}/>
+</Routes>
+{/* <PokemonApi/> */}
 </>
 );
 
 }
 
 export default App
+export {Data,Data2}
 
 {/* <Cards imgSource="https://dp6mhagng1yw3.cloudfront.net/entries/8th/work_netflix-original-series-narcos-social-campaig.jpg"  
        title="A Netflix Original"
