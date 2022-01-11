@@ -20,11 +20,14 @@ const [state, setState]=useState(false);
 //const [hide, setHide]=useState(false);
 const [form, setForm]=useState(false);
 const [reload,SetReload]=useState(false);
+const [select,SetSelect]=useState(null);
+
+const [deptId,SetDeptId]=useState(0);
 useEffect(()=>{
     
     async function getData(){
      
-     await axios.get(`http://localhost:61274/api/User/AllUsers`).then((response) => {
+     await axios.get(`http://localhost:61274/api/User/AllUsers?deptId=${deptId}`).then((response) => {
       
         let d=response.data;
         console.log(d); 
@@ -46,12 +49,13 @@ useEffect(()=>{
     getData();
 
     //console.log(data);  
-   },[data2,state,form,reload]);
+   },[data2,state,form,reload,deptId,select]);
 
    const sendId=(id)=>{
      props.setTextField(id);
      setData2(id);
      setState(true);
+     SetSelect(id.UserId);
      //setHide(false);
    }
   const deleteUser = async (id)=>{
@@ -67,9 +71,14 @@ useEffect(()=>{
  
   
     return (<>
-{state &&  <PsInternForm dataTextField={data2} setState={setState}/>}
+{state &&  <PsInternForm dataTextField={data2} setState={setState} SetSelect={SetSelect}/>}
 { form && <PsInternCreate setForm={setForm}/>}
-    <button type="button" onClick={()=>{setForm(true);}}> Create </button>
+<select name="filterByDepartment" onChange={(event)=>{SetDeptId(event.target.value)}} style={{marginTop:'21px'}}>
+<option value={0}>Filter By Department</option>
+<option value={1}>CSE</option>
+<option value={2}>BBA</option>
+</select>
+    <button type="button" onClick={()=>{setForm(true);}} class="btn btn-success"> Create </button>
     <div style={{textAlign :'left'}}>
     <table className="table table-dark">
     <thead>
@@ -84,15 +93,15 @@ useEffect(()=>{
     <th scope="col">Delete</th>
   </tr></thead>
   <tbody>
-     {data.map((val)=>{ return (<tr><td>{val.FirstName}</td><td>{val.LastName}</td>
+     {data.map((val)=>{ return (<tr style={val.UserId == select?{color:'yellow'}:{}}><td>{val.FirstName}</td><td>{val.LastName}</td>
      <td>{val.Email}</td><td>{val.Department.DepartmentName }</td>
      <td>{val.Designation.DesignationName }</td>
      <td>{val.UserType==1?'Teacher':'Student' }</td>
      <td>
-     <button type="submit" onClick={()=>{sendId(val)}}> Edit </button>
+     <button type="submit" class="btn btn-warning" onClick={()=>{sendId(val)}}> Edit </button>
     
      </td>
-     <td> <button type="submit" onClick={()=>{deleteUser(val.UserId)}}> Delete </button></td>
+     <td> <button type="submit" class="btn btn-danger" onClick={()=>{deleteUser(val.UserId)}}> Delete </button></td>
      </tr>)
     
     })} 

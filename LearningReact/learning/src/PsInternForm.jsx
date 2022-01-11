@@ -27,10 +27,10 @@ const inputEvent = (event) =>{
     console.log(JSON.stringify(user))
     //var data=JSON.stringify(user);
     const put= async ()=>{
-       await axios.post('http://localhost:61274/api/User/UpdateUser',user).then((response) => {
+       await axios.put(`http://localhost:61274/api/User/UpdateUser/${user.userId}`,user).then((response) => {
         console.log(response);
-      if(response.data=="success"){ props.setState(false); alert("Update Successsful")}else{ alert(response.data)}
-   
+      if(response.data=="success"){ props.setState(false); alert("Update Successsful");setTimeout(()=>{props.SetSelect(null)},3000);}else{ alert(response.data)}
+     
     })
     .catch((err) => {
         console.log(err);
@@ -65,19 +65,29 @@ console.log(props.dataTextField.Department.DepartmentId)
     <div >
     <form onSubmit={handleSubmit}>
     <table  className="table table-dark" >
-
+    <thead>
+    <tr>
+    <th scope="col">FirstName</th>
+    <th scope="col">LastName</th>
+    <th scope="col">Email</th>
+    <th scope="col">Department Name</th>
+    <th scope="col">Designation</th>
+    <th scope="col">User Type</th>
+    <th scope="col">Action</th>
+  
+  </tr>
+  </thead>
     <tbody>
     <tr>
     {/* <td scope="col" hidden><input type='text' name="UserId" onChange={inputEvent}  value={user.UserId} /></td> */}
-    <td scope="col"> Firstname : <input type='text' name="firstName" onChange={inputEvent}  value={user.firstName} /></td>
-    <td scope="col"> Lastname : <input type='text' name="lastName" onChange={inputEvent}  value={user.lastName} /></td>
-    <td scope="col"> Email : <input type='text' name="email"  onChange={inputEvent} value={user.email} /></td>
-    <td scope="col" >Action</td>
-    </tr>   
-    <tr>
+    <td scope="col"> <input type='text' name="firstName" onChange={inputEvent}  value={user.firstName} /></td>
+    <td scope="col">  <input type='text' name="lastName" onChange={inputEvent}  value={user.lastName} /></td>
+    <td scope="col">  <input type='text' name="email"  onChange={inputEvent} value={user.email} /></td>
+   
+   
     <td scope="col">
-    Department :   
-    <select name="departmentId"  onChange={inputEvent}>
+     
+    <select name="departmentId"  onChange={inputEvent} style={{marginTop:'21px'}}>
     <option value={props.dataTextField.DepartmentId}>{props.dataTextField.Department.DepartmentName}</option>
      {/* {()=>{if(props.dataTextField.Department.DepartmentId==2){return(<option value='2'>BBA</option>)}else{return(<option value='1'>CSE</option>)}}}  */}
     {/* {props.dataTextField.Department.DepartmentId === 1 && (<option value=2>BBA</option>) } */}
@@ -86,8 +96,8 @@ console.log(props.dataTextField.Department.DepartmentId)
     </td>
     
     <td scope="col">
-    Designation :  
-    <select name="designationId"  onChange={inputEvent}>
+     
+    <select name="designationId"  onChange={inputEvent} style={{marginTop:'21px'}}>
     <option value={props.dataTextField.DesignationId}>{props.dataTextField.Designation.DesignationName}</option>
     {/* {()=>{if(props.dataTextField.Department.DepartmentId==2){return(<option value='2'>BBA</option>)}else{return(<option value='1'>CSE</option>)}}}  */}
     {/* {props.dataTextField.Department.DepartmentId === 1 && (<option value=2>BBA</option>) } */}
@@ -96,14 +106,14 @@ console.log(props.dataTextField.Department.DepartmentId)
     </td>
 
     <td scope="col">
-    User Type :  
-    <select name="userType"  onChange={inputEvent}>
+ 
+    <select name="userType"  onChange={inputEvent} style={{marginTop:'21px'}}>
     <option value={props.dataTextField.UserType}>{props.dataTextField.UserType ==1?'Teacher':'Student'}</option>
     <option value={props.dataTextField.DesignationId==1?2:1}>{props.dataTextField.UserType ==1?'Student':'Teacher'}</option>
     </select>
     </td>
 
-    <td scope="col" > <button type="submit" > Save </button></td>
+    <td scope="col" > <button type="submit" style={{marginTop:'25px'}} class="btn btn-success" > Save </button>  <button type="button"  style={{marginTop:'25px'}} class="btn btn-warning" onClick={()=>{ props.setState(false);props.SetSelect(null);}} > Cancel </button></td>
 
    </tr>
   </tbody>

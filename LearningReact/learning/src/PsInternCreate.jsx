@@ -93,7 +93,7 @@ const inputEvent = (event) =>{
 <option value={2}>Student</option>
 </select>
 </td>
-<td scope="col" > <button type="submit"style={{marginTop:'26px'}} > Save User </button></td>
+<td scope="col" > <button type="submit"style={{marginTop:'26px'}} class="btn btn-success"> Save User </button> <button type="button" onClick={()=>{props.setForm(false);}} style={{marginTop:'26px'}} class="btn btn-warning">Cancel</button></td>
 
 </tr>
 </tbody>
