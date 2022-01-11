@@ -10,13 +10,15 @@ const PokemonApi =()=>{
 
   });
 
+
   useEffect(()=>{
     
      async function getData(){
-        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${num}`)
-      
-      setInfo({name:res.data.name,moves:res.data.moves.length})
-      console.log('Hiii2')
+        //const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${num}`)
+        const res2 = await axios.get(`http://localhost:61274/api/User/AllUsers`);
+        console.log(res2);
+      //setInfo({name:res.data.name,moves:res.data.moves.length})
+      //console.log(res2);
         }; 
       
         getData();

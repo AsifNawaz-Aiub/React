@@ -3,7 +3,7 @@ import React, { createContext, useEffect, useState } from 'react';
 //import Greet from './Greet';
 //import {Add,Sub} from './Calculator';
 //import Cards from './Cards';
-//import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./Sdata";
 import ToDolist from './ToDoList';
 import IncDec from './IncDec';
@@ -11,6 +11,8 @@ import GoogleKeep from './GoogleKeep/GoogleKeep';
 import PokemonApi from './PokemonApi';
 import Navbar from './Navbar';
 import { Route, Routes } from 'react-router-dom';
+import PsIntern from './PsIntern';
+import PsInternForm from './PsInternForm';
 
 //import SlotMachine from './SlotMachine';
 //import data from './Sdata';
@@ -30,9 +32,13 @@ import { Route, Routes } from 'react-router-dom';
 
 const Data = createContext();
 const Data2 = createContext();
-
+var dataTextField=[];
 function App(){
-
+ const  setTextField=(val)=>{
+       dataTextField=val;
+     //  return val;
+      // console.log(dataTextField)
+ }
   
 //      useEffect(()=>{
 //   alert('Page refreshed');
@@ -117,12 +123,14 @@ return(
  <GoogleKeep/> 
  </Data2.Provider>
 </Data.Provider> */}
-<Navbar/>
-<Routes> 
+{/* <Navbar/> */}
+
+<PsIntern setTextField={setTextField}/>
+{/* <Routes> 
 <Route path="/PokemonGoApi" element={<PokemonApi/>}/>
 <Route path="/GoogleKeep" element={<GoogleKeep/>}/>
 <Route path="/ToDoList" element={<ToDolist/>}/>
-</Routes>
+</Routes> */}
 {/* <PokemonApi/> */}
 </>
 );
